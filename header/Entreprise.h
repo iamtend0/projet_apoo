@@ -13,7 +13,6 @@ private:
     string telContact;
 
 public:
-    Entreprise();
     Entreprise(string, string, string, string);
     string getNom();
     string getAdresse();

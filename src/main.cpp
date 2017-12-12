@@ -1,3 +1,3 @@
-void main(void) {
-    //stub
+int main(void) {
+    return 0; //stub
 }
