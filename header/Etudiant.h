@@ -1,5 +1,5 @@
-#ifndef ENTREPRISE_H
-#define ENTREPRISE_H
+#ifndef ETUDIANT_H
+#define ETUDIANT_H
 
 #include <string>
 
