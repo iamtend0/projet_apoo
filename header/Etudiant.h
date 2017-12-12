@@ -2,6 +2,8 @@
 #define ETUDIANT_H
 
 #include <string>
+#include <vector>
+#include "Diplome.h"
 
 using namespace std;
 
