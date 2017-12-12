@@ -3,6 +3,8 @@
 #include <iostream>
 #include <string>
 
+using namespace std;
+
 class RendezVous {
 private:
     string date; /* @TODO mettre en Date */
