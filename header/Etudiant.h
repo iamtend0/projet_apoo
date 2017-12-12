@@ -25,6 +25,7 @@ public:
   string getPrenom();
   string getAdresse();
   string getNumeroTel();
+  vector <Diplome *> getDiplomes();
 
   //SETTERS
 
