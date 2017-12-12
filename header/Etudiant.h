@@ -27,7 +27,8 @@ public:
   string getPrenom();
   string getAdresse();
   string getNumeroTel();
-  vector <Diplome *> getDiplomes();
+  vector<Diplome *> getDiplomes();
+  vector<Diplome *>::iterator itDiplomes;
 
   //SETTERS
 
@@ -36,6 +37,10 @@ public:
   void setPrenom(string);
   void setAdresse(string);
   void setNumeroTel(string);
+
+  // OTHERS
+
+  void afficherDiplomes();
 
 };
 #endif
