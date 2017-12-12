@@ -12,10 +12,11 @@ private:
   string prenom;
   string adresse;
   string numeroTel;
+  vector<Diplome *> diplomes;
 
 public:
 
-  Etudiant(string ,string ,string ,string ,string );
+  Etudiant(string ,string ,string ,string ,string);
 
   //GETTERS
 
