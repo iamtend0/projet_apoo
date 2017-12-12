@@ -1,12 +1,3 @@
-#include "../header/Etudiant.h"
-#include <iostream>
-
-using namespace std;
-
-int main(){
-
-
-
-
-  return 0;
+int main(void) {
+    return 0; //stub
 }
