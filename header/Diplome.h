@@ -9,7 +9,7 @@ class Diplome {
 private:
     string code;
     string intitule;
-    string dateObt;
+    string dateObt; /* @TODO mettre en format date */
     string lieuObt;
 
 public:
