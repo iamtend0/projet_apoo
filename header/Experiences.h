@@ -1,29 +1,35 @@
 #ifndef EXPERIENCES_H
 #define EXPERIENCES_H
 
-#include "Entreprise.h"
+#include "../header/Entreprise.h"
+#include "../header/Etudiant.h"
+#include "../header/Date.h"
 #include <string>
 
 using namespace std;
 
+
 class Experiences{
 private:
-  string dateDebut;
-  string dateFin;
-  Entreprise entreprise;
+  Date* dateDebut;
+  Date* dateFin;
+  string entreprise;
   string fonction;
+  Etudiant* etudiant;
+
 public:
 
-  Experiences(string,string,Entreprise,string);
+  Experiences(Date*,Date*,string,string,Etudiant*);
 
-  string getDateDebut();
-  string getDateFin();
-  Entreprise getEntreprise();
+  Date* getDateDebut() const;
+  Date* getDateFin();
+  string getEntreprise();
   string getFonction();
+  Etudiant* getEtudiant();
 
-  void setDateDebut(string);
-  void setDateFin(string);
-  void setEntreprise(Entreprise);
+  void setDateDebut(Date*);
+  void setDateFin(Date*);
+  void setEntreprise(string);
   void setFonction(string);
 
 };

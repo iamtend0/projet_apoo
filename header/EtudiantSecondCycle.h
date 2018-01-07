@@ -10,13 +10,16 @@ using namespace std;
 class EtudiantSecondCycle : public Etudiant{
 private:
   string DisciplinePrincipale;
+  vector<EtudiantSecondCycle*> eS;
 
 public:
 
-  EtudiantSecondCycle(string,string,string,string,string,string);
+  EtudiantSecondCycle(int,string,string,string,string,string);
 
   string getDisciplinePrincipale();
   void setDisciplinePrincipale(string);
+
+
 
 
 };

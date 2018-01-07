@@ -6,16 +6,17 @@
 
 
 using namespace std;
-
+class RendezVous;
 class EtudiantPremierCycle : public Etudiant{
 private:
   string serieBac;
   int anneeBac;
   string lieuObtBac;
+  vector<EtudiantPremierCycle*> eP;
 
 public:
 
-  EtudiantPremierCycle(string,string,string,string,string,string,int,string);
+  EtudiantPremierCycle(int,string,string,string,string,string,int,string);
 
   string getSerieBac();
   int getAnneeBac();
@@ -26,4 +27,5 @@ public:
   void setLieuObtBac(string);
 
 };
+
 #endif

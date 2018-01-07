@@ -1,27 +1,31 @@
 #include "../header/Experiences.h"
 
-Experiences::Experiences(string dateD,string dateF,Entreprise _entreprise,string f): dateDebut(dateD),dateFin(dateF),entreprise(_entreprise),fonction(f) {}
 
-string Experiences::getDateDebut(){
+Experiences::Experiences(Date* dateD,Date* dateF,string _entreprise,string f,Etudiant*_etudiant): dateDebut(dateD),dateFin(dateF),entreprise(_entreprise),fonction(f),etudiant(_etudiant) {}
+
+Date* Experiences::getDateDebut()const{
   return dateDebut;
 }
-string Experiences::getDateFin(){
+Date* Experiences::getDateFin(){
   return dateFin;
 }
-Entreprise Experiences::getEntreprise(){
+string Experiences::getEntreprise(){
   return entreprise;
 }
 string Experiences::getFonction(){
   return fonction;
 }
+Etudiant* Experiences::getEtudiant(){
+    return etudiant;
+}
 
-void Experiences::setDateDebut(string dateD){
+void Experiences::setDateDebut(Date* dateD){
   dateDebut=dateD;
 }
-void Experiences::setDateFin(string dateF){
+void Experiences::setDateFin(Date* dateF){
   dateFin=dateF;
 }
-void Experiences::setEntreprise(Entreprise _entreprise){
+void Experiences::setEntreprise(string _entreprise){
   entreprise=_entreprise;
 }
 void Experiences::setFonction(string f){

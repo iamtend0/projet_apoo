@@ -2,26 +2,35 @@
 #define DIPLOME_H
 #include <iostream>
 #include <string>
+#include <vector>
 
 using namespace std;
 
+#include "../header/Inscription.h"
+#include "../header/Date.h"
+class Etudiant;
+
 class Diplome {
 private:
-    string code;
+    int code;
     string intitule;
-    string dateObt; /* @TODO mettre en format date */
+    Date* dateObt; /* @TODO mettre en format date */
     string lieuObt;
+    Etudiant* etudiant;
 
 public:
-    Diplome(string, string, string, string);
-    string getCode();
+    Diplome(int, string, Date*, string,Etudiant*);
+    int getCode()const;
     string getIntitule();
-    string getDateObt();
+    Date* getDateObt();
     string getLieuObt();
-    void setCode(string);
+    Etudiant* getEtudiant();
+    void setCode(int);
     void setIntitule(string);
-    void setDateObt(string);
+    void setDateObt(Date*);
     void setLieuObt(string);
+
+
 
 };
 

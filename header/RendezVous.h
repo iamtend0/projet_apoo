@@ -3,20 +3,29 @@
 #include <iostream>
 #include <string>
 
+#include "../header/Etudiant.h"
+#include "../header/Date.h"
+
+class Entreprise;
+
 using namespace std;
 
 class RendezVous {
 private:
-    string date; /* @TODO mettre en Date */
+    Date* date; /* @TODO mettre en Date */
     int heureDebut;
     int heureFin;
+    Etudiant *etudiant;
+    Entreprise *entreprise;
 
 public:
-    RendezVous(string, int, int);
-    string getDate();
-    int getHeureDebut();
+    RendezVous(Date*, int, int,Etudiant*,Entreprise*);
+    Date* getDate()const;
+    int getHeureDebut()const;
     int getHeureFin();
-    void setDate(string);
+    Etudiant* getEtudiant()const;
+    Entreprise* getEntreprise()const;
+    void setDate(Date*);
     void setHeureDebut(int);
     void setHeureFin(int);
 

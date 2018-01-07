@@ -1,10 +1,15 @@
 #include "../header/EtudiantPremierCycle.h"
+#include "../header/RendezVous.h"
 
-EtudiantPremierCycle::EtudiantPremierCycle(string num ,string n,string p,string a,string tel,string serieBac,int anneeBac,string lieuObtBac):
+
+
+
+EtudiantPremierCycle::EtudiantPremierCycle(int num ,string n,string p,string a,string tel,string _serieBac,int _anneeBac,string _lieuObtBac):
   Etudiant(num,n,p,a,tel),
-  serieBac(this->serieBac),
-  anneeBac(this->anneeBac),
-  lieuObtBac(this->lieuObtBac)
+  serieBac(_serieBac),
+  anneeBac(_anneeBac),
+  lieuObtBac(_lieuObtBac)
+
   {}
 
   string EtudiantPremierCycle::getSerieBac(){
@@ -26,3 +31,5 @@ EtudiantPremierCycle::EtudiantPremierCycle(string num ,string n,string p,string 
   void EtudiantPremierCycle::setLieuObtBac(string lieuObtBac){
     lieuObtBac=this->lieuObtBac;
   }
+
+  

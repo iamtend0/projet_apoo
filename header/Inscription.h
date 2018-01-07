@@ -2,24 +2,34 @@
 #define INSCRIPTION_H
 #include <iostream>
 #include <string>
-#include "Diplome.h"
+#include <vector>
+#include "../header/Date.h"
+
 
 using namespace std;
-
+class Diplome;
+class Etudiant;
 class Inscription {
 private:
-    Diplome * diplomeAssocie; // une inscription associée à un diplome
-    string datePremInscription; /* @TODO mettre en Date */
+    int code;
+    string intitule;
+    Etudiant* etudiant; // une inscription associée à un etudiant
+    Date* datePremInscription;
     int annee; // annee de cette inscription
+    vector<Inscription*> inscription;
+
 
 public:
-    Inscription(Diplome *, string, int);
-    Diplome * getDiplome();
-    string getDatePremInscription();
+    Inscription(int,string,Etudiant*, Date*, int);
+    int getCode();
+    Date* getDatePremInscription();
     int getAnnee();
-    void setDiplome(Diplome *);
-    void setDatePremInscription(string);
+    vector<Inscription*> getInscription();
+    Etudiant* getEtudiant();
+    void setCode(int);
+    void setDatePremInscription(Date*);
     void setAnnee(int);
+    void AjoutInscription(Inscription*);
 };
 
 #endif
