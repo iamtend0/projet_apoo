@@ -1,0 +1,25 @@
+CXXFLAGS=-Wall
+
+classes = Date.cpp Diplome.cpp Entreprise.cpp Etudiant.cpp EtudiantPremierCycle.cpp EtudiantSecondCycle.cpp Experiences.cpp Inscription.cpp RendezVous.cpp
+programme = main.cpp
+
+entetes = $(classes:.cpp=.h)
+execs = $(programme:.cpp ) $(progs:.cpp=)
+
+all: $(execs)
+
+main: main.o Diplome.o Entreprise.o Etudiant.o EtudiantPremierCycle.o EtudiantSecondCycle.o Experiences.o Inscription.o RendezVous.o Date.o
+
+##########
+
+%: %.o
+        $(LINK.cpp) -o $@ $^
+
+clean:
+        rm -f *~ *.o *.bak
+
+mrproper:   clean
+        rm-f $(execs)
+
+depend:
+        makedepend $(progs) $(classes)
