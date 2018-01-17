@@ -36,7 +36,7 @@ Inscription *inscription=new Inscription(1,"0",E,D,2005);
 
 int main(void) {
 
-while(menu!="13"){
+while(menu!="12"){
 cout<<endl;
 cout<<"---Menu du Logiciel--- :"<<endl;
 cout<<"1.Ajout EtudiantPremierCycle"<<endl;
@@ -59,7 +59,7 @@ cout<<endl;
 if(menu=="1"){
     cout<<"---ETUDIANT PREMIER CYCLE---"<<endl;
 
-        cout<<"Entrez numero etudiant"<<endl;
+        cout<<"Entrez le numero d'etudiant"<<endl;
         cin>>numero;
         cout<<"Entrez le nom"<<endl;
         cin>>nom;
@@ -71,9 +71,9 @@ if(menu=="1"){
         cin>>telephone;
         cout<<"Entrez la serie du baccalaureat"<<endl;
         cin>>seriebac;
-        cout<<"Entrez annee obtention"<<endl;
+        cout<<"Entrez l'annee obtention"<<endl;
         cin>>anneebac;
-        cout<<"Entrez lieu obtention"<<endl;
+        cout<<"Entrez le lieu obtention"<<endl;
         cin>>lieubac;
 
 
@@ -92,7 +92,7 @@ if(menu=="1"){
 if(menu=="2"){
     cout<<"---ETUDIANT SECOND CYCLE---"<<endl;
 
-        cout<<"Entrez numero etudiant"<<endl;
+        cout<<"Entrez le numero d'etudiant"<<endl;
         cin>>numero;
         cout<<"Entrez le nom"<<endl;
         cin>>nom;
@@ -126,13 +126,13 @@ if(menu=="3"){
         cout<<"---DIPLOME---"<<endl;
         cout<<"Entrez le numero d'un etudiant existant"<<endl;
         cin>>numero;
-        cout<<"Entrez code du diplome"<<endl;
+        cout<<"Entrez le code du diplome"<<endl;
         cin>>code;
-        cout<<"Entrez intitule du diplome"<<endl;
+        cout<<"Entrez l'intitule du diplome"<<endl;
         cin>>intitule;
-        cout<<"Entrez date obtention du diplome"<<endl;
+        cout<<"Entrez la date obtention du diplome"<<endl;
         date=D->SaisieDate();
-        cout<<"Entrez lieu d'obtention du diplome"<<endl;
+        cout<<"Entrez le lieu d'obtention du diplome"<<endl;
         cin>>lieu;
 
         for(unsigned int i=0;i<E->getEtudiant().size();i++){
@@ -199,11 +199,11 @@ if(menu=="5"){
           cin>>numero;
           cout<<"Entrez le code du diplome"<<endl;
           cin>>code;
-          cout<<"Entrez intitule du diplome"<<endl;
+          cout<<"Entrez l'intitule du diplome"<<endl;
           cin>>intitule;
-          cout<<"Entrez date de la premiere inscription"<<endl;
+          cout<<"Entrez la date de la premiere inscription"<<endl;
           dateinscription=D->SaisieDate();
-          cout<<"Entrez annee de cette inscription"<<endl;
+          cout<<"Entrez l'annee de cette inscription"<<endl;
           cin>>anneeinscription;
           cout<<endl;
 
@@ -251,9 +251,9 @@ if(menu=="7"){
         }
         else{
             cout<<"---RENDEZVOUS---"<<endl;
-            cout<<"Entrez le numero d'un etudiant existant"<<endl;
+            cout<<"Entrez le numero d'un etudiant "<<endl;
             cin>>numero;
-            cout<<"Entrez le nom d'une entreprise existante"<<endl;
+            cout<<"Entrez le nom d'une entreprise "<<endl;
             cin>>nomEnt;
             cout<<"Entrez la date du rendez-vous"<<endl;
             dateR=D->SaisieDate();

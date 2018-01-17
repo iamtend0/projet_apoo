@@ -103,10 +103,21 @@ class VectorOfEntreprise
   }
 };
 
-bool ComparaisonDate(const RendezVous* r1,const RendezVous* r2) //Predicat pour la fonction sort() pour trier les dates de RendezVousdans l'ordre croissant
+bool ComparaisonDate1(const RendezVous* r1,const RendezVous* r2) //Predicat pour la fonction sort() pour trier les dates de RendezVousdans l'ordre croissant
 {
-    return (r1->getDate()->getJour() < r2->getDate()->getJour());
+    return r1->getDate()->getJour() < r2->getDate()->getJour();
 }
+
+bool ComparaisonDate2(const RendezVous* r1,const RendezVous* r2) //Predicat pour la fonction sort() pour trier les dates de RendezVousdans l'ordre croissant
+{
+    return r1->getDate()->getMois() < r2->getDate()->getMois();
+}
+
+bool ComparaisonDate3(const RendezVous* r1,const RendezVous* r2) //Predicat pour la fonction sort() pour trier les dates de RendezVousdans l'ordre croissant
+{
+    return r1->getDate()->getAnnee() < r2->getDate()->getAnnee();
+}
+
 
 
 bool ComparaisonHeure(const RendezVous* r1,const RendezVous* r2) //Predicat pour la fonction sort() pour trier les heures de debut de RendezVous dans l'ordre croissant
@@ -180,7 +191,7 @@ void Entreprise::AjoutEntreprises(Entreprise* En){
     it = find_if(en.begin(), en.end(), tofind);
 
     if (it != en.end()){
-        cout<<"Cet entreprise existe deja"<<endl;
+        cout<<"Cet entreprise existe déjà"<<endl;
         cout<<endl;
     }
     else{
@@ -196,9 +207,21 @@ void Entreprise::AfficheRendezVousEn(){
 
     cout<<"Entrez un nom d'entreprise "<<endl;
     cin>>nomE;
-    sort(r.begin(),r.end(),ComparaisonDate);
-    //sort(r.begin(),r.end(),comparaisonNom);
-        sort(r.begin(),r.end(),ComparaisonHeure);
+    VectorOfEntreprise tofind(nomE);
+    it = find_if(en.begin(), en.end(), tofind);
+
+    if (it == en.end()){
+        cout<<"Cet entreprise n'existe pas"<<endl;
+        cout<<endl;
+    }
+    else{
+
+
+
+    sort(r.begin(),r.end(),ComparaisonDate1);
+    sort(r.begin(),r.end(),ComparaisonDate2);
+    sort(r.begin(),r.end(),ComparaisonDate3);
+    sort(r.begin(),r.end(),ComparaisonHeure);
 
     for(vector<RendezVous*>::iterator it=r.begin();it!=r.end();++it){
         y++;
@@ -214,6 +237,7 @@ void Entreprise::AfficheRendezVousEn(){
 
 
     }
+  }
 
 }
 
@@ -221,6 +245,15 @@ void Entreprise::AfficheEntreprise(){
     string nom;
     cout<<"Entrez un nom d'entreprise existant"<<endl;
     cin>>nom;
+    VectorOfEntreprise tofind4(nom);
+    it = find_if(en.begin(), en.end(), tofind4);
+    if (it == en.end()){
+        cout<<"Cet entreprise n'existe pas"<<endl;
+        cout<<endl;
+    }
+    else{
+
+
 
     cout<<"---Entreprise---"<<endl;
     for(vector<Entreprise*>::iterator it=en.begin();it!=en.end();++it){
@@ -230,4 +263,5 @@ void Entreprise::AfficheEntreprise(){
 
         }
     }
+  }
 }

@@ -165,10 +165,21 @@ class VectorOfEntreprise
   }
 };
 
-bool comparaisonDate(const RendezVous* r1,const RendezVous* r2) //Predicat pour la fonction sort() pour trier les dates de RendezVousdans l'ordre croissant
+bool comparaisonDate1(const RendezVous* r1,const RendezVous* r2) //Predicat pour la fonction sort() pour trier les dates de RendezVousdans l'ordre croissant
 {
     return r1->getDate()->getJour() < r2->getDate()->getJour();
 }
+
+bool comparaisonDate2(const RendezVous* r1,const RendezVous* r2) //Predicat pour la fonction sort() pour trier les dates de RendezVousdans l'ordre croissant
+{
+    return r1->getDate()->getMois() < r2->getDate()->getMois();
+}
+
+bool comparaisonDate3(const RendezVous* r1,const RendezVous* r2) //Predicat pour la fonction sort() pour trier les dates de RendezVousdans l'ordre croissant
+{
+    return r1->getDate()->getAnnee() < r2->getDate()->getAnnee();
+}
+
 
 bool comparaisonNom(const RendezVous* r1,const RendezVous* r2) //Predicat pour la fonction sort() pour trier les noms des Entreprises dans l'ordre croissant
 {
@@ -251,7 +262,7 @@ void Etudiant::AjoutEtudiant(Etudiant* E){
     it = find_if(e.begin(), e.end(), tofind); //Parcours le vector Etudiant avec find_if pour savoir si le numero de l'etudiant entré en parametre existe deja
                                               //find_if utilise le foncteur VectorOfEtudiant
     if (it != e.end()){                       //Si il trouve un numero correspondant alors l'etudiant est deja enregistré
-        cout<<"Cet etudiant existe deja"<<endl;
+        cout<<"Cet etudiant existe déjà"<<endl;
         cout<<endl;
     }
     else{
@@ -295,7 +306,7 @@ void Etudiant::AjoutExperiences(Experiences *Ex,Etudiant*E){
     vector<Experiences*>::iterator it4=find_if(ex.begin(), ex.end(), tofind4);
     it = find_if(e.begin(), e.end(), tofind3);
     if (it3 != ex.end()&&it2!=ex.end()&&it4!=ex.end()&& it!=e.end()){
-        cout<<"Cette experience existe deja pour l'etudiant"<<endl;
+        cout<<"Cette experience existe déjà pour l'etudiant"<<endl;
         cout<<endl;
     }
     else{
@@ -318,6 +329,7 @@ void Etudiant::AjoutRendezVous(RendezVous *rv,Etudiant *E){
     it6= find_if(r.begin(),r.end(),tofind6);
     it = find_if(e.begin(), e.end(), tofind4);
     it5 = find_if(r.begin(),r.end(),tofind5);
+
     if ((it4 != r.end()&&it6!=r.end()&&it2!=r.end()&&it3!=r.end())&& (it!=e.end()||it5!=r.end())) {
         cout<<"Ce RendezVous existe deja pour l'etudiant ou l'entreprise"<<endl;
         cout<<endl;
@@ -330,9 +342,8 @@ void Etudiant::AjoutRendezVous(RendezVous *rv,Etudiant *E){
         r.push_back(rv);
     }
 
-     //if(y==r.size() && (*it)->getEtudiant()->getNom()!=rv->getEtudiant()->getNom()){
-        //cout<<"Cet etudiant n'existe pas"<<endl;
-        //cout<<endl;
+
+
 
 }
 
@@ -345,6 +356,15 @@ void Etudiant::AfficheEtudiant(){
     unsigned int y=0;
     cout<<"Entrez un numero d'etudiant "<<endl;
     cin>>numero;
+    VectorOfEtudiant tofind(numero);
+    it = find_if(e.begin(), e.end(), tofind);
+    if (it == e.end()){
+        cout<<"Cet etudiant n'existe pas"<<endl;
+        cout<<endl;
+    }
+    else{
+
+
 
     cout<<"---Etudiant---"<<endl;
     for(vector<Etudiant*>::iterator it=e.begin();it!=e.end();++it){
@@ -359,7 +379,7 @@ void Etudiant::AfficheEtudiant(){
     for(vector<Diplome*>::iterator it=d.begin();it!=d.end();++it){
     y++;
         if((*it)->getEtudiant()->getNumero()==numero){
-            cout<<"Code: "<<(*it)->getCode()<<endl<<"Intitule : "<<(*it)->getIntitule()<<endl<<"Date obtention: "<<(*it)->getDateObt()->getJour()<<"/ "<<(*it)->getDateObt()->getMois()<<"/"<<(*it)->getDateObt()->getAnnee()<<endl<<"Lieu obtention: "<<(*it)->getLieuObt()<<endl;
+            cout<<"Code: "<<(*it)->getCode()<<endl<<"Intitule : "<<(*it)->getIntitule()<<endl<<"Date obtention: "<<(*it)->getDateObt()->getJour()<<"/"<<(*it)->getDateObt()->getMois()<<"/"<<(*it)->getDateObt()->getAnnee()<<endl<<"Lieu obtention: "<<(*it)->getLieuObt()<<endl;
             cout<<endl;
 
         }
@@ -384,7 +404,7 @@ void Etudiant::AfficheEtudiant(){
       }
   }*/
   }
-
+}
 
 
 void Etudiant::AfficheRendezVousE(){
@@ -393,7 +413,18 @@ void Etudiant::AfficheRendezVousE(){
 
     cout<<"Entrez un numero d'etudiant "<<endl;
     cin>>numero;
-    sort(r.begin(),r.end(),comparaisonDate);
+
+    VectorOfEtudiant tofind(numero);
+    it = find_if(e.begin(), e.end(), tofind);
+    if (it == e.end()){
+        cout<<"Cet etudiant n'existe pas"<<endl;
+        cout<<endl;
+    }
+    else{
+
+    sort(r.begin(),r.end(),comparaisonDate1);
+    sort(r.begin(),r.end(),comparaisonDate2);
+    sort(r.begin(),r.end(),comparaisonDate3);
     sort(r.begin(),r.end(),comparaisonHeure);
     sort(r.begin(),r.end(),comparaisonNom);
 
@@ -407,5 +438,6 @@ void Etudiant::AfficheRendezVousE(){
         }
 
     }
+}
 
 }
